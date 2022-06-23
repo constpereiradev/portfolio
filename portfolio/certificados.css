@@ -1,0 +1,27 @@
+* {
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    text-align: center;
+    background-color: #A3BF8F;
+    padding: 50px;
+}
+.certificado > img{
+    width: 400px;
+    margin: 15px;
+}
+.certificado {
+    text-align: center;
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+}
+.botao {
+color: black;
+  border: none;
+  background-color: #385947;
+  text-align: center;
+  height: 35px;
+  width: 300px;
+}
