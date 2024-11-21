@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amanda Pereira | Desenvolvedora Web</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://cdn.icon-icons.com/icons2/685/PNG/512/code_icon-icons.com_61210.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+
+            .card-title,
+            .card-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Header Section */
+        header {
+            background-color: transparent;
+            color: white;
+            padding: 80px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: none;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #5c6bc0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            background-color: black;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-overlay {
+            z-index: 1 !important;
+        }
+
+        .hero-content {
+            z-index: 2;
+            text-align: center;
+            max-width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 4px solid #fff;
+            width: 0;
+            animation: typing 3.5s steps(40) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .hero-content button {
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 8px;
+        }
+
+        .hero-content button:hover {
+            background-color: #3f51b5;
+        }
+
+        /* Projetos Section */
+        .card-body {
+            min-height: 200px;
+            /* Garantir altura fixa para os textos */
+        }
+
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3b3b3b;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+        }
+
+        /* Estilo da descrição oculta que aparecerá com hover */
+        .experiencia-descricao {
+            display: none;
+            /* Inicialmente oculta */
+            margin-top: 15px;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Quando o card é hover, exibe a descrição */
+        .card:hover .experiencia-descricao {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Animação para a descrição aparecer suavemente */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+
+        footer a {
+            color: #ccc;
+            margin: 0 15px;
+            font-size: 1.5rem;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+
+        /* Animações */
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes drift {
+            0% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(15px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        /* Ícones animados */
+        .floating-icons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-icons i {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            animation: float 10s linear infinite, drift 6s ease-in-out infinite;
+        }
+
+        .botao-vermelho {
+            background-color: #EF233C !important;
+            font-size: 22px !important;
+        }
+
+        .texto-vermelho {
+            color: #EF233C !important;
+        }
+
+        .texto-azul {
+            color: #0F2239 !important;
+        }
+
+        /* Animations */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 80vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .hero-content button {
+                padding: 12px 25px;
+            }
+
+            .icons i {
+                font-size: 2rem;
+            }
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        footer h4 {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #f39c12;
+            /* Cor de destaque no hover */
+        }
+
+        footer .social-icons a {
+            margin: 0 15px;
+        }
+
+        footer .social-icons a:hover {
+            color: #f39c12;
+            /* Cor de destaque nos ícones */
+        }
+
+        footer .text-center p {
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        /* Estilo da linha do tempo */
+        .timeline {
+            position: relative;
+            margin-left: 0;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #EF233C;
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #EF233C;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        .timeline-description {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Estilo para total de tempo de experiência */
+        .total-experiencia {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0F2239;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"> <code> < / > </code></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active fs-3" aria-current="page" href="#projetos">Projetos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-3" href="javascript:void(0)" onclick="paginaOrcamento()">Orçamento</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="floating-icons">
+            <i class="fab fa-php" style="top: 10%; left: 15%;"></i>
+            <i class="fab fa-laravel" style="top: 20%; left: 60%;"></i>
+            <i class="fab fa-vuejs" style="top: 80%; left: 30%;"></i>
+            <i class="fab fa-bootstrap" style="top: 70%; left: 50%;"></i>
+            <i class="fab fa-symfony" style="top: 30%; left: 80%;"></i>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-7 justify-content-center d-flex align-items-center">
+                <div class="hero-content">
+                    <h1 class="mb-3 texto-vermelho">Transformando ideias em soluções</h1>
+                    <h3 class="fw-bold text-white mb-5">Crio sistemas web robustos e escaláveis, otimizando a
+                        performance e a experiência do usuário.</h3>
+                    <button class="botao-vermelho" onclick="paginaOrcamento()">Solicitar orçamento</button>
+                </div>
+            </div>
+
+            <div class="col-sm-5 justify-content-center d-flex align-items-center">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <img src="https://cdn3d.iconscout.com/3d/premium/thumb/programming-3d-icon-download-in-png-blend-fbx-gltf-file-formats--coding-development-web-code-website-miscellaneous-pack-icons-5203659.png?f=webp"
+                            alt="Ícone de programação" class="hero-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Projetos Section -->
+    <section id="projetos" class="container my-5 mb-5">
+        <h2 class="text-center mb-5">Meus projetos</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div style="cursor: pointer;" class="card">
+                    <img src="https://png.pngtree.com/png-vector/20191218/ourmid/pngtree-coming-soon-logo-vector-template-design-illustration-png-image_2091063.jpg"
+                        class="card-img-top" alt="Projeto 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Plataforma Quest</h5>
+                        <p class="card-text">Plataforma de criação de questionários de avaliação, com integração ao
+                            banco de dados.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div style="cursor: pointer;" class="card">
+                    <img src="https://png.pngtree.com/png-vector/20191218/ourmid/pngtree-coming-soon-logo-vector-template-design-illustration-png-image_2091063.jpg"
+                        class="card-img-top" alt="Projeto 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Vapt</h5>
+                        <p class="card-text">Plataforma de gerenciamento de pedidos e entregas, com otimização de
+                            processos e integração em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div style="cursor: pointer;" onclick="paginaOrcamento()" class="card">
+                    <img src="https://png.pngtree.com/png-vector/20191218/ourmid/pngtree-coming-soon-logo-vector-template-design-illustration-png-image_2091063.jpg"
+                        class="card-img-top" alt="Projeto 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Em breve</h5>
+                        <p class="card-text">Esse projeto pode ser seu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Escolaridade e Experiência Profissional -->
+    <section id="experiencia" class="container mt-5 mb-5">
+        <h2 class="text-center mb-5">Jornada profissional</h2>
+        <div class="row">
+
+            <!-- Escolaridade -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-graduation-cap fa-3x texto-vermelho"></i>
+                            <div class="ms-3">
+                                <h5 class="card-title">Formação Acadêmica</h5>
+                                <p class="card-text">Superior em Tecnologia da Informação - Universidade Federal de Mato
+                                    Grosso do Sul (Cursando)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experiência Profissional -->
+            <div class="col-md-6 mb-4">
+                <div class="card shadow-sm border-light">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-briefcase fa-3x texto-vermelho"></i>
+                            <div class="ms-3">
+                                <h5 class="card-title">Experiência Profissional</h5>
+                                <p class="card-text">Desenvolvedora BackEnd Junior - Blue (Atual)</p>
+                                <div class="experiencia-descricao">
+                                    <p>Foco no desenvolvimento de APIs e na implementação de funcionalidades para
+                                        manipulação de dados e recursos, utilizando o framework Symfony. Responsável por
+                                        receber tarefas e desenvolver soluções backend escaláveis e eficientes para
+                                        atender às necessidades do time de desenvolvimento e dos usuários finais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Histórico Profissional (Experiências Anteriores) 
+        <div class="row">
+            <div class="col-12 mb-4">
+              Total de tempo de experiência 
+                <div class="text-center mt-5">
+                    <h4 class="mb-3">Tempo de experiência</h4>
+                    <div class="total-experiencia">
+                        <span id="total-experiencia">1 ano, 5 meses</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    -->
+
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <!-- Informações de contato -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-uppercase">Contato</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:amandapereiradevcontact@gmail.com"
+                            class="text-white">amandapereiradevcontact@gmail.com</a></p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+557184767953" class="text-white">+55 (71)
+                            8476-7953</a></p>
+                </div>
+
+                <!-- Redes sociais -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-uppercase">Redes Sociais</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/constpereiradev" target="_blank" class="text-white me-3"><i
+                                class="fab fa-github fa-2x"></i></a>
+                        <a href="https://www.linkedin.com/in/amanda-pereira-dev/" target="_blank"
+                            class="text-white me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+
+                <!-- Logo ou Branding -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="text-uppercase">Sobre</h4>
+                    <p>Sou Amanda Pereira, Desenvolvedora Web. Crio soluções digitais utilizando as
+                        melhores práticas de desenvolvimento e experiência do usuário.</p>
+                </div>
+            </div>
+
+            <hr class="bg-white">
+
+            <!-- Copyright -->
+            <div class="text-center">
+                <p>&copy; 2024 Amanda Pereira | Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+        function paginaOrcamento() {
+            var telefone = '71984767953';
+            window.open("https://wa.me/55" + telefone + "?text=Olá!%20Gostaria%20de%20realizar%20um%20orçamento%20para%20meu%20site.%20:)", '_blank');
+        }
+
+        // Função para calcular o tempo total de experiência
+        function calcularTempoExperiencia() {
+            const experiencias = [
+                { inicio: '2022-01-01', fim: '2024-01-01' }, // Exemplo de experiência atual
+                { inicio: '2021-06-01', fim: '2021-12-01' }, // Exemplo de experiência passada
+                // Adicione outras experiências conforme necessário
+            ];
+
+            let totalMeses = 0;
+
+            // Calcular o tempo total de todas as experiências
+            experiencias.forEach(exp => {
+                const inicio = new Date(exp.inicio);
+                const fim = exp.fim === 'atual' ? new Date() : new Date(exp.fim);
+
+                const meses = (fim.getFullYear() - inicio.getFullYear()) * 12 + fim.getMonth() - inicio.getMonth();
+                totalMeses += meses;
+            });
+
+            // Converter total de meses para anos e meses
+            const anos = Math.floor(totalMeses / 12);
+            const meses = totalMeses % 12;
+
+            // Exibir o resultado na página
+            document.getElementById('total-experiencia').textContent = `${anos} ano(s), ${meses} mês(es)`;
+        }
+
+        window.onload = calcularTempoExperiencia;
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
